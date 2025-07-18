@@ -28,5 +28,15 @@ public class Controller {
         courseService.registercourses(name,emailid,CourseName);
         return "Congratulations  "+name+" EnrolledCourses Successfully for "+CourseName;
     }
+    @Configuration
+public class WebConfig {
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return registry -> registry.addMapping("/**")
+            .allowedOrigins("https://friendly-kulfi-9122b9.netlify.app")
+            .allowedMethods("GET", "POST", "PUT", "DELETE");
+    }
+}
+
 
 }
